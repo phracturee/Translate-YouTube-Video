@@ -15,7 +15,7 @@ from typing import Tuple, Optional
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
 # Регулярное выражение для извлечения ID видео из URL YouTube
-YOUTUBE_URL_REGEX = re.compile(r"(?:https?://)?(?:www.)?(?:youtube.com/watch?v=|youtube.com/embed/|youtu.be/)([\w-]{11})")
+YOUTUBE_URL_REGEX = re.compile(r"(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtube\.com\/embed\/|youtu\.be\/)([\w-]{11})")
 
 # Каталоги
 BASE_DIR = Path(__file__).parent
@@ -192,8 +192,10 @@ async def main():
     Основная функция для запуска скрипта.
     """
     try:
-        url = input("Введите ссылку на YouTube видео: ")
-        if url.strip():
+        url_input = input("Введите ссылку на YouTube видео: ")
+        # Очищаем ввод от лишних пробелов и символов новой строки
+        url = url_input.strip()
+        if url:
             await process_youtube_link(url)
         else:
             print("Ссылка не была введена. Выход.")
