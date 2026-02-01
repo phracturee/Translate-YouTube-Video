@@ -82,8 +82,8 @@ sudo dnf install -y ffmpeg
 
 1.  Клонируйте репозиторий:
     ```bash
-    git clone <URL-репозитория>
-    cd <имя-папки>
+    git clone https://github.com/phracturee/Translate-YouTube-Video.git
+    cd Translate-YouTube-Video
     ```
 
 2.  Создайте и активируйте виртуальное окружение:
